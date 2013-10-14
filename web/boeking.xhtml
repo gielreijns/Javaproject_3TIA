@@ -16,10 +16,30 @@
             <div class="container">
                 <div class="whitebox" id="hpage_services">
 
+                    <h:form>
+                        <h:panelGrid id="grid" columns="2">
+                            <h:outputLabel>Aantal deelnemers: </h:outputLabel>
+                            <h:inputSecret id="aantal"/>
+
+                            <h:outputLabel>Betaalwijze: </h:outputLabel>
+                            <h:selectOneRadio id="betaalwijze" >
+                                <f:selectItem itemValue="0" itemLabel="Overschrijving" />
+                                <f:selectItem itemValue="1" itemLabel="Kredietkaart"/>
+                            </h:selectOneRadio>
+
+                            <h:outputLabel>Prijs:</h:outputLabel>
+                            <h:outputLabel id="prijs">0 euro</h:outputLabel>
+
+                            <h:outputLabel>Reis boeken</h:outputLabel>
+                            <h:commandButton id="knop" value="Submit"/>
+                        </h:panelGrid>
+
+                    </h:form>
+
                 </div>
             </div>
         </div>
-        
+
         <ui:include src="footer.xhtml"/>
     </h:body>
 </html>
