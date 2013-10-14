@@ -18,12 +18,18 @@
                 
                     <h:form>
 
-                        <h:panelGrid id="grid" columns="2">
-                            <h:outputLabel>Gebruikersnaam </h:outputLabel><h:inputText id="gebruikersnaam"/>
-                            <h:outputLabel>Wachtwoord </h:outputLabel><h:inputSecret id="wachtwoord"/>
+                        <h:panelGrid id="grid" columns="3">
+                            <h:outputLabel>Gebruikersnaam: </h:outputLabel>
+                            <h:inputText id="gebruikersnaam"/>
+                           <h:commandButton value="Registreren" action="registreren"/>
+                            <h:outputLabel>Wachtwoord: </h:outputLabel>
+                            <h:inputSecret id="wachtwoord"/>
+                            <h:outputLabel></h:outputLabel>
+                            <h:outputLabel>Bevestig wachtwoord: </h:outputLabel>
+                            <h:inputSecret id="wachtwoordbevestig"/>
                             
                         </h:panelGrid>
-                        <h:commandButton value="Registreren" action="registreren"/>
+                       
                     </h:form>
             </div>
         </div>
