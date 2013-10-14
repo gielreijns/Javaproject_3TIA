@@ -8,6 +8,6 @@ package info.toegepaste.www.controllers;
  *
  * @author Bruno
  */
-public class osqdyuigff {
+public class boekingController {
     
 }
