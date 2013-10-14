@@ -16,6 +16,7 @@ public class Gemeente {
     private Long landId;
     private Land land;
     private List<Gebruiker> gebruikers;
+    private List<Reis> reizen;
 
     public Gemeente() {
     }
@@ -26,6 +27,14 @@ public class Gemeente {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Reis> getReizen() {
+        return reizen;
+    }
+
+    public void setReizen(List<Reis> reizen) {
+        this.reizen = reizen;
     }
 
     public String getNaam() {
@@ -70,6 +79,7 @@ public class Gemeente {
 
     @Override
     public String toString() {
-        return "Gemeente{" + "id=" + id + ", naam=" + naam + ", postcode=" + postcode + ", landId=" + landId + ", land=" + land + ", gebruikers=" + gebruikers + '}';
+        return "Gemeente{" + "id=" + id + ", naam=" + naam + ", postcode=" + postcode + ", landId=" + landId + ", land=" + land + ", gebruikers=" + gebruikers + ", reizen=" + reizen + '}';
     }
+    
 }
