@@ -20,29 +20,29 @@
 
                         <h:panelGrid id="grid" columns="4">
                             <h:outputLabel>Voornaam: </h:outputLabel>
-                            <h:inputText id="voornaam" tabindex="1"/> 
+                            <h:inputText id="voornaam" tabindex="1" required="true" requiredMessage="Vul je voornaam in"/> 
                             <h:outputLabel>Email: </h:outputLabel>
-                            <h:inputText id="email" tabindex="6" requiredMessage="Please enter your email address."
-		validatorMessage="Invalid email format">
+                            <h:inputText id="email" tabindex="6" required="true" requiredMessage="Vul je email in"
+                                         validatorMessage="ongeldig email">
                                 <f:validateRegex
                                     pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
                             </h:inputText>
                             <h:outputLabel>Naam: </h:outputLabel>
-                            <h:inputText id="naam" tabindex="2"/>      
+                            <h:inputText id="naam" tabindex="2" required="true" requiredMessage="Vul je naam in"/>      
                             <h:outputLabel>Wachtwoord: </h:outputLabel>
-                            <h:inputSecret id="wachtwoord" tabindex="7"/>
+                            <h:inputSecret id="wachtwoord" tabindex="7" required="true" requiredMessage="Vul een wachtwoord in"/>
                             <h:outputLabel>Telefoon: </h:outputLabel>
-                            <h:inputText id="telefoon" tabindex="3" >
+                            <h:inputText id="telefoon" tabindex="3" required="true" requiredMessage="Vul je telefoonnummer in" >
                                 <f:convertNumber integerOnly="true" type="number" />
                             </h:inputText>
                             <h:outputLabel>Bevestig wachtwoord: </h:outputLabel>
-                            <h:inputSecret id="wachtwoordbevestig" tabindex="8"/>                            
+                            <h:inputSecret id="wachtwoordbevestig" tabindex="8" required="true" requiredMessage="Vul een wachtwoord in"/>                            
                             <h:outputLabel>Straat: </h:outputLabel>
-                            <h:inputText id="straat" tabindex="4"/>
+                            <h:inputText id="straat" tabindex="4" required="true" requiredMessage="Vul je straat in"/>
                             <h:outputLabel></h:outputLabel>
                             <h:outputLabel></h:outputLabel>
                             <h:outputLabel>Straatnummer: </h:outputLabel>
-                            <h:inputText id="straatnummer" tabindex="5"/> 
+                            <h:inputText id="straatnummer" tabindex="5" required="true" requiredMessage="Vul je straatnummer in"/> 
                             <h:outputLabel></h:outputLabel>
                             <h:commandButton value="Registreren" action="registreren" tabindex="9"/>                                              
                         </h:panelGrid>
