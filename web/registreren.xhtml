@@ -20,18 +20,18 @@
 
                         <h:panelGrid id="grid" columns="3">
                             <h:outputLabel>Voornaam: </h:outputLabel>
-                            <h:inputSecret id="voornaam"/>
-                            <h:commandButton value="Registreren" action="registreren"/>
-                            
+                            <h:inputText id="voornaam"/>
+                            <h:commandButton value="Registreren" action="registreren"/>                          
                             <h:outputLabel>Naam: </h:outputLabel>
-                            <h:inputSecret id="naam"/>
-                            <h:outputLabel></h:outputLabel>
-                            
+                            <h:inputText id="naam"/>
+                            <h:outputLabel></h:outputLabel>        
                             <h:outputLabel>Telefoon: </h:outputLabel>
-                            <h:inputSecret id="telefoon"/>
+                            <h:inputText id="telefoon"  >
+                            <f:convertNumber integerOnly="true" type="number" />
+                            </h:inputText>
                             <h:outputLabel></h:outputLabel>
                             <h:outputLabel>Straat: </h:outputLabel>
-                            <h:inputSecret id="straat"/>
+                            <h:inputText id="straat"/>
                             <h:outputLabel></h:outputLabel>
                             <h:outputLabel>Email: </h:outputLabel>
                             <h:inputText id="email"/>
