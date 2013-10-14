@@ -6,52 +6,52 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Registreren</title>
-        
+
         <link rel="stylesheet" href="styles/layout.css" type="text/css" />
     </h:head>
     <h:body>
-    <ui:include src="header.xhtml"/>
-    
-    <div class="wrapper">
-        <div class="container">
-            <div class="whitebox" id="hpage_services">
-                
+        <ui:include src="header.xhtml"/>
+
+        <div class="wrapper">
+            <div class="container">
+                <div class="whitebox" id="hpage_services">
+
                     <h:form>
 
                         <h:panelGrid id="grid" columns="4">
                             <h:outputLabel>Voornaam: </h:outputLabel>
                             <h:inputText id="voornaam" tabindex="1"/> 
                             <h:outputLabel>Email: </h:outputLabel>
-                            <h:inputText id="email" tabindex="6"/>
+                            <h:inputText id="email" tabindex="6" requiredMessage="Please enter your email address."
+		validatorMessage="Invalid email format">
+                                <f:validateRegex
+                                    pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                            </h:inputText>
                             <h:outputLabel>Naam: </h:outputLabel>
                             <h:inputText id="naam" tabindex="2"/>      
                             <h:outputLabel>Wachtwoord: </h:outputLabel>
                             <h:inputSecret id="wachtwoord" tabindex="7"/>
                             <h:outputLabel>Telefoon: </h:outputLabel>
                             <h:inputText id="telefoon" tabindex="3" >
-                            <f:convertNumber integerOnly="true" type="number" />
+                                <f:convertNumber integerOnly="true" type="number" />
                             </h:inputText>
                             <h:outputLabel>Bevestig wachtwoord: </h:outputLabel>
-                            <h:inputSecret id="wachtwoordbevestig" tabindex="8"/>
-                            
+                            <h:inputSecret id="wachtwoordbevestig" tabindex="8"/>                            
                             <h:outputLabel>Straat: </h:outputLabel>
                             <h:inputText id="straat" tabindex="4"/>
                             <h:outputLabel></h:outputLabel>
                             <h:outputLabel></h:outputLabel>
-                             <h:outputLabel>Straatnummer: </h:outputLabel>
-                            <h:inputText id="straatnummer" tabindex="5"/>
-  
+                            <h:outputLabel>Straatnummer: </h:outputLabel>
+                            <h:inputText id="straatnummer" tabindex="5"/> 
                             <h:outputLabel></h:outputLabel>
-                            <h:commandButton value="Registreren" action="registreren" tabindex="9"/>                          
-                            
-                            
+                            <h:commandButton value="Registreren" action="registreren" tabindex="9"/>                                              
                         </h:panelGrid>
-                       
+
                     </h:form>
+                </div>
             </div>
         </div>
-    </div>
-    <ui:include src="footer.xhtml"/>
-</h:body>
+        <ui:include src="footer.xhtml"/>
+    </h:body>
 </html>
 
