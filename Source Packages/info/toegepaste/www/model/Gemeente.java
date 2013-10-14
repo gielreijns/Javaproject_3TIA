@@ -13,7 +13,8 @@ public class Gemeente {
     private Long id;
     private String naam;
     private int postcode;
-    private Continent continent;
+    private Long landId;
+    private Land land;
     private List<Gebruiker> gebruikers;
 
     public Gemeente() {
@@ -43,12 +44,20 @@ public class Gemeente {
         this.postcode = postcode;
     }
 
-    public Continent getContinent() {
-        return continent;
+    public Long getLandId() {
+        return landId;
     }
 
-    public void setContinent(Continent continent) {
-        this.continent = continent;
+    public void setLandId(Long landId) {
+        this.landId = landId;
+    }
+
+    public Land getLand() {
+        return land;
+    }
+
+    public void setLand(Land land) {
+        this.land = land;
     }
 
     public List<Gebruiker> getGebruikers() {
@@ -61,8 +70,6 @@ public class Gemeente {
 
     @Override
     public String toString() {
-        return "Gemeente{" + "id=" + id + ", naam=" + naam + ", postcode=" + postcode + ", continent=" + continent + ", gebruikers=" + gebruikers + '}';
+        return "Gemeente{" + "id=" + id + ", naam=" + naam + ", postcode=" + postcode + ", landId=" + landId + ", land=" + land + ", gebruikers=" + gebruikers + '}';
     }
-    
-    
 }
