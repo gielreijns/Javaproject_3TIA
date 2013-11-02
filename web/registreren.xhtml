@@ -21,7 +21,7 @@
                         <h:panelGrid columns="6">
                         
                             <h:outputLabel>Voornaam: </h:outputLabel>
-                            <h:inputText id="voornaam" tabindex="1" required="true" requiredMessage="Vul je voornaam in" value=""/>  
+                            <h:inputText id="voornaam" tabindex="1" required="true" requiredMessage="Vul je voornaam in" value="#{gebruiker.voornaam}"/>  
                             
                             <h:messages  layout="table" for="voornaam" style="width: 100; Color: red;"/>
                             
@@ -58,7 +58,7 @@
                             <h:messages layout="table" for="straatnummer" style="Color: red"/>
                             <h:outputLabel></h:outputLabel>
 
-                            <h:commandButton value="Registreren" action="registreren" tabindex="9"/>
+                            <h:commandButton value="Registreren" action="#{Gebruiker.add}" tabindex="9"/>
                             
                         
                         </h:panelGrid>

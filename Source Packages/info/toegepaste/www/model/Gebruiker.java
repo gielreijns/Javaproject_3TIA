@@ -110,7 +110,6 @@ public class Gebruiker {
     public void setReizen(List<Reis> reizen) {
         this.reizen = reizen;
     }
-
     public void add() {
         
         
@@ -119,16 +118,10 @@ public class Gebruiker {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_project_2013", "root", "mysql");
-                String sql = "INSERT INTO gebruiker(voornaam, naam, telefoon, email, wachtwoord, straat, nummer, gemeenteId) VALUES(?,?,?,?,?,?,?,?)";
+                String sql = "INSERT INTO gebruiker(voornaam) VALUES(?)";
                 ps = con.prepareStatement(sql);
                 ps.setString(1, voornaam);
-                ps.setString(2, naam);
-                ps.setString(3, telefoon);
-                ps.setString(4, email);
-                ps.setString(5, wachtwoord);
-                ps.setString(6, straat);
-                ps.setString(7, nummer);
-                ps.setLong(8, gemeenteId);
+                
                 ps.executeUpdate();
                 
             } catch (Exception e) {
@@ -141,11 +134,38 @@ public class Gebruiker {
                     e.printStackTrace();
                 }
             }
-            
-                
-            
-         
     }
+//    public void add() {
+//
+//
+//            PreparedStatement ps = null;
+//            Connection con = null;
+//            try {
+//                Class.forName("com.mysql.jdbc.Driver");
+//                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_project_2013", "root", "mysql");
+//                String sql = "INSERT INTO gebruiker(voornaam, naam, telefoon, email, wachtwoord, straat, nummer, gemeenteId) VALUES(?,?,?,?,?,?,?,?)";
+//                ps = con.prepareStatement(sql);
+//                ps.setString(1, voornaam);
+//                ps.setString(2, naam);
+//                ps.setString(3, telefoon);
+//                ps.setString(4, email);
+//                ps.setString(5, wachtwoord);
+//                ps.setString(6, straat);
+//                ps.setString(7, nummer);
+//                ps.setLong(8, gemeenteId);
+//                ps.executeUpdate();
+//
+//            } catch (Exception e) {
+//                System.out.println(e);
+//            } finally {
+//                try {
+//                    con.close();
+//                    ps.close();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//    }
 
 @Override
         public String toString() {
