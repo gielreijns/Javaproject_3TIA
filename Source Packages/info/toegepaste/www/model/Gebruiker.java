@@ -4,12 +4,17 @@
  */
 package info.toegepaste.www.model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.List;
+
 /**
  *
  * @author Bruno
  */
 public class Gebruiker {
+
     private Long id;
     private String voornaam;
     private String naam;
@@ -18,8 +23,7 @@ public class Gebruiker {
     private String wachtwoord;
     private String straat;
     private String nummer;
-    private Long gemeenteId;
-    private Gemeente gemeente;
+    private Long gemeenteId;    
     private List<Reis> reizen;
 
     public Gebruiker() {
@@ -97,13 +101,7 @@ public class Gebruiker {
         this.gemeenteId = gemeenteId;
     }
 
-    public Gemeente getGemeente() {
-        return gemeente;
-    }
-
-    public void setGemeente(Gemeente gemeente) {
-        this.gemeente = gemeente;
-    }
+    
 
     public List<Reis> getReizen() {
         return reizen;
@@ -113,9 +111,45 @@ public class Gebruiker {
         this.reizen = reizen;
     }
 
-    @Override
-    public String toString() {
-        return "Gebruiker{" + "id=" + id + ", voornaam=" + voornaam + ", naam=" + naam + ", telefoon=" + telefoon + ", email=" + email + ", wachtwoord=" + wachtwoord + ", straat=" + straat + ", nummer=" + nummer + ", gemeenteId=" + gemeenteId + ", gemeente=" + gemeente + ", reizen=" + reizen + '}';
+    public void add() {
+        
+        
+            PreparedStatement ps = null;
+            Connection con = null;
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_project_2013", "root", "mysql");
+                String sql = "INSERT INTO gebruiker(voornaam, naam, telefoon, email, wachtwoord, straat, nummer, gemeenteId) VALUES(?,?,?,?,?,?,?,?)";
+                ps = con.prepareStatement(sql);
+                ps.setString(1, voornaam);
+                ps.setString(2, naam);
+                ps.setString(3, telefoon);
+                ps.setString(4, email);
+                ps.setString(5, wachtwoord);
+                ps.setString(6, straat);
+                ps.setString(7, nummer);
+                ps.setLong(8, gemeenteId);
+                ps.executeUpdate();
+                
+            } catch (Exception e) {
+                System.out.println(e);
+            } finally {
+                try {
+                    con.close();
+                    ps.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            
+                
+            
+         
+    }
+
+@Override
+        public String toString() {
+        return "Gebruiker{" + "id=" + id + ", voornaam=" + voornaam + ", naam=" + naam + ", telefoon=" + telefoon + ", email=" + email + ", wachtwoord=" + wachtwoord + ", straat=" + straat + ", nummer=" + nummer + ", gemeenteId=" + gemeenteId + ", reizen=" + reizen + '}';
     }
     
 }
