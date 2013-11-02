@@ -118,7 +118,7 @@ public class Gebruiker {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_project_2013", "root", "mysql");
-                String sql = "INSERT INTO gebruiker(voornaam) VALUES(?)";
+                String sql = "INSERT INTO java_project_2013.gebruiker(voornaam) VALUES(?)";
                 ps = con.prepareStatement(sql);
                 ps.setString(1, voornaam);
                 
