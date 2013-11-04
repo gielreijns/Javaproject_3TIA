@@ -21,7 +21,7 @@
                         <h:panelGrid columns="6">
                         
                             <h:outputLabel>Voornaam: </h:outputLabel>
-                            <h:inputText id="voornaam" value="#{gebruiker.voornaam}" tabindex="1" required="true" requiredMessage="Vul je voornaam in" />  
+                            <h:inputText id="voornaam" value="" tabindex="1" required="true" requiredMessage="Vul je voornaam in" />  
                             
                             <h:messages  layout="table" for="voornaam" style="width: 100; Color: red;"/>
                             
@@ -57,8 +57,14 @@
                             <h:inputText id="straatnummer" tabindex="5" required="true" requiredMessage="Vul je straatnummer in"/> 
                             <h:messages layout="table" for="straatnummer" style="Color: red"/>
                             <h:outputLabel></h:outputLabel>
+                            <h:outputLabel></h:outputLabel>
+                            <h:outputLabel></h:outputLabel>
+                            <h:outputLabel>Gemeente: </h:outputLabel>
+                            <h:selectOneListbox id="gemeente" tabindex="9" required="true" requiredMessage="Kies je gemeente"/> 
+                            <h:messages layout="table" for="gemeente" style="Color: red"/>
+                            <h:outputLabel></h:outputLabel>
 
-                            <h:commandButton value="Registreren" action="gebruiker.add" tabindex="9"/>
+                            <h:commandButton value="Registreren" action="gebruiker.add" tabindex="10"/>
                             
                         
                         </h:panelGrid>
