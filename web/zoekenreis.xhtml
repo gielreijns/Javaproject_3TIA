@@ -4,8 +4,9 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <ui:composition xmlns="http://www.w3.org/1999/xhtml">
         <h:head>
-            <title>RD Travelshop | Bestemmingen</title>
+            <title>RD Travelshop | Zoeken</title>
             <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+            <script src="styles/jquery-2.0.3.js"></script>
         </h:head>
         <h:body>
             <ui:include src="include/header.xhtml"/>
@@ -13,9 +14,21 @@
                 <div class="container">
                     <div class="whitebox" id="hpage_services">
 
-                        <h3>Kies een bestemming</h3>
-                        
-                       
+                        <h3>Zoeken</h3>
+                        <h:form>
+                            <fieldset title="test">  
+                                <h:panelGrid columns="4">
+                                    <h:outputLabel for="bestemming">Bestemming: </h:outputLabel>
+                                    <h:inputText id="bestemming" tabindex="1" />
+                                    
+                                    <h:outputLabel for="plaatsen">Beschikbare plaatsen: </h:outputLabel>
+                                    <h:inputText id="plaatsen" tabindex="2" />
+                                    
+                                    <h:outputLabel for="plaatsen">Beschikbare plaatsen: </h:outputLabel>
+                                    <h:inputText id="plaatsen" tabindex="2" />
+                                </h:panelGrid>
+                            </fieldset>
+                        </h:form>
                     </div>
                 </div>
             </div>
