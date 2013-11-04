@@ -4,29 +4,63 @@
  */
 package info.toegepaste.www.model;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 /**
  *
  * @author Bruno
  */
-public class Gemeente {
-    private Long id;
+@Entity
+@Table(name = "gemeente")
+@NamedQueries({
+
+})
+public class Gemeente implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "naam")
     private String naam;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "postcode")
     private int postcode;
-    private Long landId;
+    @JoinColumn(name = "landId", referencedColumnName = "id")
+    @ManyToOne(optional = false)
     private Land land;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "gebruiker")
     private List<Gebruiker> gebruikers;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "reis")
     private List<Reis> reizen;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vertrekplaats")
     private List<Vertrekplaats> vertrekplaatsen;
 
     public Gemeente() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -60,14 +94,6 @@ public class Gemeente {
 
     public void setPostcode(int postcode) {
         this.postcode = postcode;
-    }
-
-    public Long getLandId() {
-        return landId;
-    }
-
-    public void setLandId(Long landId) {
-        this.landId = landId;
     }
 
     public Land getLand() {
