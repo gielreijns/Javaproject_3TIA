@@ -7,6 +7,7 @@
 package info.toegepaste.www.services;
 
 import info.toegepaste.www.model.Gemeente;
+import info.toegepaste.www.model.Land;
 import java.util.List;
 
 /**
@@ -15,5 +16,5 @@ import java.util.List;
  */
 public interface GemeenteService {
     public List<Gemeente> getAllGemeentes();
-    
+    public List<Gemeente> getAllGemeentesByLand(Land land);
 }

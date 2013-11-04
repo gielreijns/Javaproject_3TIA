@@ -28,7 +28,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "gemeente")
 @NamedQueries({
-    @NamedQuery(name = "Gemeente.getAll", query = "SELECT g FROM Gemeente g")
+    @NamedQuery(name = "Gemeente.getAll", query = "SELECT g FROM Gemeente g"),
+        @NamedQuery(name = "Gemeente.getAllByLand", query = "SELECT g FROM Gemeente g WHERE g.land = :land")
 })
 public class Gemeente implements Serializable {
     private static final long serialVersionUID = 1L;
