@@ -13,6 +13,6 @@ import javax.inject.Named;
  */
 @Named
 @RequestScoped
-public class boekingController implements Serializable{
+public class boekingController implements Serializable {
     
 }
