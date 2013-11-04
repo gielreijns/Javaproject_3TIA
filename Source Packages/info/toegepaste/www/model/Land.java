@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -24,7 +25,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "land")
 @NamedQueries({
-
+@NamedQuery(name = "Land.getAll", query = "SELECT l FROM Land l")
 })
 public class Land implements Serializable {
     private static final long serialVersionUID = 1L;
