@@ -31,7 +31,6 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "Gemeente.getAll", query = "SELECT g FROM Gemeente g")
 })
 public class Gemeente implements Serializable {
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
