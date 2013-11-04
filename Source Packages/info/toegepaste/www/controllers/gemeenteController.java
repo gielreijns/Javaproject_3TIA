@@ -20,7 +20,7 @@ import javax.inject.Named;
  */
 @Named
 @RequestScoped
-public class gemeenteController implements Serializable {
+public class GemeenteController implements Serializable {
     @Inject
     private GemeenteService gemeenteService;
     
