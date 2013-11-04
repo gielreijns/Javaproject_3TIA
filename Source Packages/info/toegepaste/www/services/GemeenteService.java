@@ -14,5 +14,6 @@ import java.util.List;
  * @author Bruno
  */
 public interface GemeenteService {
+    public List<Gemeente> getAllGemeentes();
     
 }

@@ -16,9 +16,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
 /**
  *
  * @author Bruno
@@ -26,9 +28,10 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "gemeente")
 @NamedQueries({
-
+    @NamedQuery(name = "Gemeente.getAll", query = "SELECT g FROM Gemeente g")
 })
 public class Gemeente implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -116,7 +119,7 @@ public class Gemeente implements Serializable {
     public String toString() {
         return "Gemeente{" + "id=" + id + ", naam=" + naam + ", postcode=" + postcode + ", land=" + land + ", gebruikers=" + gebruikers + ", reizen=" + reizen + ", vertrekplaatsen=" + vertrekplaatsen + '}';
     }
-    
+
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set

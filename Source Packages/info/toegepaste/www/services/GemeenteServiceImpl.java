@@ -6,6 +6,7 @@
 
 package info.toegepaste.www.services;
 
+import info.toegepaste.www.model.Gemeente;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,5 +19,8 @@ public class GemeenteServiceImpl implements GemeenteService {
     @PersistenceContext
     private EntityManager entityManager;
     
-    
+    public List<Gemeente> getAllGemeentes() {
+        Query query = entityManager.createNamedQuery("Gemeente.getAll");
+        return query.getResultList();
+    }
 }
