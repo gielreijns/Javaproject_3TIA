@@ -20,11 +20,39 @@ import javax.inject.Named;
  */
 @Named
 @RequestScoped
-public class GemeenteController implements Serializable {
+public class GemeenteController implements Serializable{
+    
+    
     @Inject
     private GemeenteService gemeenteService;
-    
-    public List<Gemeente> getAllGemeentes() {
+    @Inject
+    private GemeenteController gemeenteController;
+    private Integer selectedGemeenteId;
+    private Integer number;
+
+    public Integer getSelectedGemeenteId() {
+        return selectedGemeenteId;
+    }
+
+    public void setSelectedGemeenteId(Integer selectedGemeenteId) {
+        this.selectedGemeenteId = selectedGemeenteId;
+        
+    }
+
+   
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+            
+    public List<Gemeente> getGemeentes(){
         return gemeenteService.getAllGemeentes();
     }
+    
+    
+    
+    
 }
