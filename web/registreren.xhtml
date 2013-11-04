@@ -20,15 +20,15 @@
                     <h:form>
 
                         <h:panelGrid columns="6">
-                        
+
                             <h:outputLabel>Voornaam: </h:outputLabel>
                             <h:inputText id="voornaam" value="" tabindex="1" required="true" requiredMessage="Vul je voornaam in" />  
-                            
+
                             <h:messages  layout="table" for="voornaam" style="width: 100; Color: red;"/>
-                            
-                        
-                           <h:outputLabel>Email: </h:outputLabel>
-                            <h:inputText id="email" tabindex="6" required="true" requiredMessage="Vul je email in"
+
+
+                            <h:outputLabel>Email: </h:outputLabel>
+                            <h:inputText id="email" tabindex="7" required="true" requiredMessage="Vul je email in"
                                          validatorMessage="ongeldig email">
                                 <f:validateRegex
                                     pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
@@ -38,7 +38,7 @@
                             <h:inputText id="naam" tabindex="2" required="true" requiredMessage="Vul je naam in"/>
                             <h:messages layout="table" for="naam" style="Color: red"/>
                             <h:outputLabel>Wachtwoord: </h:outputLabel>
-                            <h:inputSecret id="wachtwoord" tabindex="7" required="true" requiredMessage="Vul een wachtwoord in"/>
+                            <h:inputSecret id="wachtwoord" tabindex="8" required="true" requiredMessage="Vul een wachtwoord in"/>
                             <h:messages layout="table" for="wachtwoord" style="Color: red"/>
                             <h:outputLabel>Telefoon: </h:outputLabel>
                             <h:inputText id="telefoon" tabindex="3" required="true" requiredMessage="Vul je telefoonnummer in" validatorMessage="enkel cijfers" >
@@ -46,7 +46,7 @@
                             </h:inputText>
                             <h:messages layout="table" for="telefoon" style="Color: red"/>
                             <h:outputLabel>Bevestig wachtwoord: </h:outputLabel>
-                            <h:inputSecret id="wachtwoordbevestig" tabindex="8" required="true" requiredMessage="Vul een wachtwoord in"/>  
+                            <h:inputSecret id="wachtwoordbevestig" tabindex="10" required="true" requiredMessage="Vul een wachtwoord in"/>  
                             <h:messages layout="table" for="wachtwoordbevestig" style="Color: red"/>
                             <h:outputLabel>Straat: </h:outputLabel>
                             <h:inputText id="straat" tabindex="4" required="true" requiredMessage="Vul je straat in"/>
@@ -61,13 +61,17 @@
                             <h:outputLabel></h:outputLabel>
                             <h:outputLabel></h:outputLabel>
                             <h:outputLabel>Gemeente: </h:outputLabel>
-                            <h:selectOneListbox id="gemeente" tabindex="9" required="true" requiredMessage="Kies je gemeente"/> 
+                            <h:selectOneMenu value="#{gemeenteController.selectedGemeenteId}" id="gemeentes" tabindex="6">
+                                <f:selectItem itemLabel="- Selecteer -" />
+                                <f:selectItems value="#{gemeenteController.gemeentes}" var="gemeente" itemLabel="#{gemeente.naam}" itemValue="#{gemeente.id}" />
+
+                            </h:selectOneMenu>
                             <h:messages layout="table" for="gemeente" style="Color: red"/>
                             <h:outputLabel></h:outputLabel>
 
-                            <h:commandButton value="Registreren" action="gebruiker.add" tabindex="10"/>
-                            
-                        
+                            <h:commandButton value="Registreren" action="gebruiker.add" tabindex="11"/>
+
+
                         </h:panelGrid>
                     </h:form>
                 </div>
