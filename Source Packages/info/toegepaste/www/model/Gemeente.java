@@ -114,7 +114,19 @@ public class Gemeente implements Serializable {
 
     @Override
     public String toString() {
-        return "Gemeente{" + "id=" + id + ", naam=" + naam + ", postcode=" + postcode + ", landId=" + landId + ", land=" + land + ", gebruikers=" + gebruikers + ", reizen=" + reizen + ", vertrekplaatsen=" + vertrekplaatsen + '}';
+        return "Gemeente{" + "id=" + id + ", naam=" + naam + ", postcode=" + postcode + ", land=" + land + ", gebruikers=" + gebruikers + ", reizen=" + reizen + ", vertrekplaatsen=" + vertrekplaatsen + '}';
     }
     
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Gemeente)) {
+            return false;
+        }
+        Gemeente other = (Gemeente) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
+    }
 }

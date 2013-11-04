@@ -4,28 +4,63 @@
  */
 package info.toegepaste.www.model;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 /**
  *
  * @author Bruno
  */
-public class Vertrekplaats {
-    private Long id;
+@Entity
+@Table(name = "gebruiker")
+@NamedQueries({
+    
+})
+public class Vertrekplaats implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "naam")
     private String naam;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "straat")
     private String straat;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "nummer")
     private String nummer;
-    private Long gemeenteId;
+    @JoinColumn(name = "gemeenteId", referencedColumnName = "id")
+    @ManyToOne(optional = false)
     private Gemeente gemeente;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "reis")
     private List<Reis> reizen;
 
     public Vertrekplaats() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,14 +88,6 @@ public class Vertrekplaats {
         this.nummer = nummer;
     }
 
-    public Long getGemeenteId() {
-        return gemeenteId;
-    }
-
-    public void setGemeenteId(Long gemeenteId) {
-        this.gemeenteId = gemeenteId;
-    }
-
     public Gemeente getGemeente() {
         return gemeente;
     }
@@ -79,6 +106,19 @@ public class Vertrekplaats {
 
     @Override
     public String toString() {
-        return "Vertrekplaats{" + "id=" + id + ", naam=" + naam + ", straat=" + straat + ", nummer=" + nummer + ", gemeenteId=" + gemeenteId + ", gemeente=" + gemeente + ", reizen=" + reizen + '}';
+        return "Vertrekplaats{" + "id=" + id + ", naam=" + naam + ", straat=" + straat + ", nummer=" + nummer + ", gemeente=" + gemeente + ", reizen=" + reizen + '}';
+    }
+    
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Vertrekplaats)) {
+            return false;
+        }
+        Vertrekplaats other = (Vertrekplaats) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
 }
