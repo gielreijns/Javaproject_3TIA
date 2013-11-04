@@ -26,19 +26,31 @@
 
                         <h3>Zoeken</h3>
                         <h:form>
-                            <fieldset title="test">  
-                                <h:panelGrid columns="4">
-                                    <h:outputLabel for="bestemming">Bestemming: </h:outputLabel>
-                                    <h:inputText id="bestemming" tabindex="1" />
+                            <fieldset>  
+                                <h:panelGrid columns="6">
+                                    <h:outputLabel for="bestemming">Bestemming:</h:outputLabel>
+                                    <h:inputText id="bestemming"/>
 
-                                    <h:outputLabel for="plaatsen">Beschikbare plaatsen: </h:outputLabel>
-                                    <h:inputText id="plaatsen" tabindex="2" />
+                                    <h:outputLabel for="plaatsen">Beschikbare plaatsen:</h:outputLabel>
+                                    <h:inputText id="plaatsen" />
 
-                                    <h:outputLabel for="periodestart">Periode start: </h:outputLabel>
-                                    <h:inputText id="periodestart" tabindex="3" class="datepicker"/>
+                                    <h:outputLabel for="vervoerswijze">Vervoerswijze:</h:outputLabel>
+                                    <h:selectOneMenu id="vervoerswijze" value="Hier nog">
+                                        <f:selectItem itemLabel="Hier nog" />
+                                        <f:selectItem itemLabel="vervoerswijzes" />
+                                        <f:selectItem itemLabel="ophalen" />
+                                    </h:selectOneMenu>
 
-                                    <h:outputLabel for="periodeeinde">Periode einde: </h:outputLabel>
-                                    <h:inputText id="periodeeinde" tabindex="4" class="datepicker"/>
+                                    
+
+                                    <span></span>
+                                    
+                                    <h:outputLabel for="periodestart">Periode start:</h:outputLabel>
+                                    <h:inputText id="periodestart" class="datepicker"/>
+
+                                    <h:outputLabel for="periodeeinde">Periode einde:</h:outputLabel>
+                                    <h:inputText id="periodeeinde" class="datepicker"/>
+
                                 </h:panelGrid>
                             </fieldset>
                         </h:form>
