@@ -6,14 +6,17 @@
         <h:head>
             <title>RD Travelshop | Zoeken</title>
             <link rel="stylesheet" href="styles/layout.css" type="text/css" />
-            <link href="css/jquery-ui-1.9.2.custom.css" rel="stylesheet"/>
-                <script src="js/jquery-1.8.3.js"></script>
-                <script src="js/jquery-ui-1.9.2.custom.js"></script>
-                <script>
-                    $(function() {
-                        $(".datepicker").datepicker();
+            <link href="styles/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
+            <script src="js/jquery-1.8.3.js"></script>
+            <script src="js/jquery-ui-1.9.2.custom.js"></script>
+            <script>
+                $(function() {
+                    $(".datepicker").datepicker({
+                        inline: true,
+                        dateFormat: "dd/mm/yy"
                     });
-                </script>
+                });
+            </script>
         </h:head>
         <h:body>
             <ui:include src="include/header.xhtml"/>
@@ -23,16 +26,31 @@
 
                         <h3>Zoeken</h3>
                         <h:form>
-                            <fieldset title="test">  
-                                <h:panelGrid columns="4">
-                                    <h:outputLabel for="bestemming">Bestemming: </h:outputLabel>
-                                    <h:inputText id="bestemming" tabindex="1" />
+                            <fieldset>  
+                                <h:panelGrid columns="6">
+                                    <h:outputLabel for="bestemming">Bestemming:</h:outputLabel>
+                                    <h:inputText id="bestemming"/>
 
-                                    <h:outputLabel for="plaatsen">Beschikbare plaatsen: </h:outputLabel>
-                                    <h:inputText id="plaatsen" tabindex="2" />
+                                    <h:outputLabel for="plaatsen">Beschikbare plaatsen:</h:outputLabel>
+                                    <h:inputText id="plaatsen" />
 
-                                    <h:outputLabel for="periode1">Periode: </h:outputLabel>
-                                    <h:inputText id="periode2" tabindex="3" class="datepicker"/>
+                                    <h:outputLabel for="vervoerswijze">Vervoerswijze:</h:outputLabel>
+                                    <h:selectOneMenu id="vervoerswijze" value="Hier nog">
+                                        <f:selectItem itemLabel="Hier nog" />
+                                        <f:selectItem itemLabel="vervoerswijzes" />
+                                        <f:selectItem itemLabel="ophalen" />
+                                    </h:selectOneMenu>
+
+                                    
+
+                                    <span></span>
+                                    
+                                    <h:outputLabel for="periodestart">Periode start:</h:outputLabel>
+                                    <h:inputText id="periodestart" class="datepicker"/>
+
+                                    <h:outputLabel for="periodeeinde">Periode einde:</h:outputLabel>
+                                    <h:inputText id="periodeeinde" class="datepicker"/>
+
                                 </h:panelGrid>
                             </fieldset>
                         </h:form>
