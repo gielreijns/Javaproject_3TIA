@@ -6,7 +6,14 @@
         <h:head>
             <title>RD Travelshop | Zoeken</title>
             <link rel="stylesheet" href="styles/layout.css" type="text/css" />
-            <script src="styles/jquery-2.0.3.js"></script>
+            <link href="css/jquery-ui-1.9.2.custom.css" rel="stylesheet"/>
+                <script src="js/jquery-1.8.3.js"></script>
+                <script src="js/jquery-ui-1.9.2.custom.js"></script>
+                <script>
+                    $(function() {
+                        $(".datepicker").datepicker();
+                    });
+                </script>
         </h:head>
         <h:body>
             <ui:include src="include/header.xhtml"/>
@@ -20,12 +27,12 @@
                                 <h:panelGrid columns="4">
                                     <h:outputLabel for="bestemming">Bestemming: </h:outputLabel>
                                     <h:inputText id="bestemming" tabindex="1" />
-                                    
+
                                     <h:outputLabel for="plaatsen">Beschikbare plaatsen: </h:outputLabel>
                                     <h:inputText id="plaatsen" tabindex="2" />
-                                    
-                                    <h:outputLabel for="plaatsen">Beschikbare plaatsen: </h:outputLabel>
-                                    <h:inputText id="plaatsen" tabindex="2" />
+
+                                    <h:outputLabel for="periode1">Periode: </h:outputLabel>
+                                    <h:inputText id="periode2" tabindex="3" class="datepicker"/>
                                 </h:panelGrid>
                             </fieldset>
                         </h:form>
